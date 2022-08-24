@@ -11,6 +11,10 @@ This web app has been developed using the popular Django framework and Bootstrap
 * Remember me – Cookie Option, users don’t have to provide credentials every time they hit the site
 * Forgot Password – Users can easily retrieve their password if they forget it 
 * Admin Panel – admin can CRUD users
+* Can look for Product according to Categories
+* Can look for Product according to brand
+* Add to Cart Option
+* Purchase Option
 
 ![ScreenShot](https://user-images.githubusercontent.com/66206865/131695930-648342b0-010b-44b2-a419-15ad54d47869.png)
 
