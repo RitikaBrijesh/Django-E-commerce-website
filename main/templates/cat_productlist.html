@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+
+       body{
+        font-family: "Poppins", sans-serif;
+       }
+
+      
+       .search{
+       position: relative;
+       box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+         
+       }
+
+       .search input{
+
+        height: 50px;
+        text-indent: 25px;
+        border: 2px solid #d6d4d4;
+        margin-bottom:20px;
+       }
+
+
+       .search input:focus{
+
+        box-shadow: none;
+        border: 2px solid blue;
+
+
+       }
+
+       .search .fa-search{
+
+        position: absolute;
+        top: 20px;
+        left: 16px;
+
+       }
+
+       .search button{
+
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        height: 40px;
+        width: 110px;
+        background: blue;
+
+       }
+
+         .container{
+            display:flex;
+        }
+
+        .products{
+            padding-left:10px;
+        }
+    </style>
+
+<br>
+    <div class="container">
+
+        <div class="products">
+           
+            <div  class="card-columns">
+                {% for product in data %}
+                <div class="card" style="width: 18rem;">
+                    {% comment %} {% url 'get_products' product.slug %} {% endcomment %}
+                    <a href="/categories/product_detail/{{product.slug}}/{{product.id}}"><img class="card-img-top" src="{{product.images.url}}"></a>
+                    <div class="card-body">
+                        <b><a href="/categories/product_detail/{{product.slug}}/{{product.id}}" class="card-title">{{product.title}} | {{product.category}}</a></b>
+                        <p class="card-text">&#8377;{{product.productattribute_set.first.price}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% comment %} Search Box {% endcomment %}
+    {% comment %} <div class="container">
+
+        <div class="row height d-flex justify-content-center align-items-center">
+
+            <div class="col-md-8">
+
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" class="form-control" placeholder="Search">
+                <button class="btn btn-primary">Search</button>
+            </div>
+            
+            </div>
+            
+        </div>
+    </div> {% endcomment %}
+
+    {% comment %} List of Categories {% endcomment %}
+
+
+    
+    
+{% endblock  %}
